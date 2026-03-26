@@ -23,12 +23,12 @@ int findingOddoccuringElement(int arr[],int size){
             if (pairstartingindex % 2 == 0){
                 //pair index is even and we standig in the left part of the array so we have to move inthe rigth side of the arrau 
 
-                s = mid + 1;
+                s = mid + 2;
             }
             else{
                 //when index is odd 
                 //if (staringindex % 2 != 0) or (staringindex %2 == 1)or (startingindex &1)
-                e = mid - 1;
+                e = mid - 2;
             }
         }
         // if dulicate exist in the right part of the array 
@@ -36,11 +36,11 @@ int findingOddoccuringElement(int arr[],int size){
             int pairstartingindex = mid;
             if (pairstartingindex & 1){
                 //stating index is odd 
-                e = mid - 1;
+                e = mid - 2;
 
             }
             else{
-                s = mid + 1;
+                s = mid + 2;
             }
         }
         mid = s + (e - s )/2;
