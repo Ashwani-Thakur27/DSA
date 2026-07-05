@@ -1,0 +1,36 @@
+1class Solution {
+2public:
+3    //here we find the range of the each one 
+4    int getrange(int nums){
+5        int largest= 0;
+6        int smallest = 9;
+7        while(nums>0){
+8            int digit = nums%10;
+9            if(digit>largest){
+10                largest = digit;
+11            }
+12            if(digit<smallest){
+13                smallest = digit;
+14            }
+15            nums = nums/10;
+16        }
+17        return largest-smallest;
+18    }
+19    int maxDigitRange(vector<int>& nums) {
+20        //pas 1 here we find the max range 
+21        int maxrange = 0;
+22        for (int i=0; i<nums.size(); i++){
+23            int range = getrange(nums[i]);
+24            if (range > maxrange){
+25                maxrange = range;
+26            }
+27        }
+28        int sum = 0;
+29        for(int i=0; i<nums.size(); i++){
+30            if(getrange(nums[i])==maxrange){
+31                sum+=nums[i];
+32            }
+33        }
+34        return sum;
+35    }
+36};
